@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista de Posts{% endblock %}
+
+{% block body %}
+    <div class="row mb-5">
+        <div class="col-9">
+            <h1>Lista de Posts</h1>
+        </div>
+        <div class="col-3">
+            <a class="btn btn-info btn-lg" href="{{ path('post_new') }}"><i class="fas fa-plus"></i> Criar um novo post</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>
+                            <i class="far fa-calendar-alt"></i>
+                            Publicado em
+                        </th>
+                        <th class="text-right">
+                            <i class="fas fa-cogs"></i>
+                            Ações
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                        <tr>
+                            <td>{{ post.titulo }}</td>
+                            <td>
+                                {% if post.created %}
+                                    {{ post.created | date('d/m/Y H:i') }}
+                                {% endif %}
+                            </td>
+                            <td class="text-right">
+                                {{ include('post/_delete_form.html.twig', {post: post}, with_context = false) }}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">Não há registros cadastrados</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

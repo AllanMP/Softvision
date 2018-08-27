@@ -1,0 +1,12 @@
+{% extends 'base_sair.html.twig' %}
+
+{% block title %}Saiu!{% endblock %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Atenção</h1>
+        <p class="lead">Você saiu do sistema.</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="{{ path('post_index') }}" role="button">clique aqui para retornar</a>
+    </div>
+{% endblock %}

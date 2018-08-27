@@ -1,0 +1,7 @@
+<form method="post" action="{{ path('post_delete', {'id': post.id}) }}" onsubmit="return confirm('Tem certeza?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ post.id) }}">
+    <a class="btn btn-primary" href="{{ path('post_show', {'id': post.id}) }}"><i class="far fa-eye"></i> Exibir</a>
+    <a class="btn btn-success" href="{{ path('post_edit', {'id': post.id}) }}"><i class="far fa-edit"></i> Editar</a>
+    <button class="btn btn-danger"><i class="far fa-trash-alt"></i> Excluir</button>
+</form>

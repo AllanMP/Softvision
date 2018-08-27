@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alterar Post{% endblock %}
+
+{% block body %}
+    <div class="row mt-5">
+        <div class="col-12">
+            <h1>Formulário</h1>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-10">
+            {{ include('post/_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
